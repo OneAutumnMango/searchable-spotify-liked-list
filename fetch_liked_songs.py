@@ -18,13 +18,15 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 ))
 genius = lyricsgenius.Genius(GENIUS_ACCESS_TOKEN)
 
+print("starting loop")
 _next=True
-offset=0
+offset=1250
 with open('lyrics.txt', 'a', encoding='utf-8') as f:
     while _next: 
         results = sp.current_user_saved_tracks(limit=50, offset=offset)
         offset+=50
         _next=results['next']
+        print(f"{_next=} {offset=} {len(results['items']=}")
         
         for item in results['items']:
             track = item['track']
