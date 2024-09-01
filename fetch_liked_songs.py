@@ -28,8 +28,9 @@ with open('lyrics.txt', 'a', encoding='utf-8') as f:
         
         for item in results['items']:
             track = item['track']
+            print(f"{track['artists'][0]['name']} - {track['name']}")
             artist = genius.search_song(track['name'], track['artists'][0]['name'])
-    
+
             if artist:
                 f.write(artist.lyrics + '\n\n---------------------------------------------------------------------\n')
             else:
