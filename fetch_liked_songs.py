@@ -26,7 +26,7 @@ with open('lyrics.txt', 'a', encoding='utf-8') as f:
         results = sp.current_user_saved_tracks(limit=50, offset=offset)
         offset+=50
         _next=results['next']
-        print(f"{_next=} {offset=} {len(results['items']=}")
+        print(f"{_next=} {offset=} {len(results['items'])=}")
         
         for item in results['items']:
             track = item['track']
