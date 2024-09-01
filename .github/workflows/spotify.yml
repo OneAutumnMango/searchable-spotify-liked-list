@@ -33,3 +33,9 @@ jobs:
         SPOTIFY_REDIRECT_URI: ${{ secrets.SPOTIFY_REDIRECT_URI }}
       run: |
         python fetch_liked_songs.py
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.2.0-node20
+      with:
+        name: spotify-lyrics-list.txt
+        path: lyrics.txt
